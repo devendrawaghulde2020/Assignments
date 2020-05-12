@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Day 2</title>
+    <button type ="button" onclick="max()">Click me to see highest number</button><hr>
+    <button type="button" onclick="document.getElementById('myname').innerHTML='Devendra Tulshiram Waghulde'">Show my name</button><hr>
+    <button type="button" onclick="document.getElementById('hidden').style='display:block'">Click to see hidden content</button><hr>
+    <button type="button" onclick="document.getElementById('font').style ='font-size:20' ">Font Change</button><hr>
+    <button type="button" onclick="datefun()">Show Date</button><hr>
+    <h1 id="demo1"></h1>
+<button type="button" onclick="asc()">Ascending</button>
+
+</head>
+<body>
+  <br> <p id="myname"></p>
+  <h2 id="hidden" style="display:none">Devendra</h2>
+  <p id="font" style="font-size:10">Devendra Tulshiram Waghulde</p>
+  <p id="date"></p>
+
+  <hr>Textbox 1:<input type="text" name="a" id="a"></input><br>
+  Textbox 2:<input type="text" name="b" id="b"></input><br>
+  <button type="button" onclick="copy()">copy button</button>
+  <h1 id="demo"></h1>
+<button type="button" onclick="descending()">Descending</button>
+
+<h1 id="demo2"></h1>
+<button onclick="check()">click</button>
+
+
+<button onclick="document.getElementById('demo3').innerHTML = myfunction(10,50)">Click Me</button>
+<h1 id="demo3"></h1>
+
+<h1 id="demo4"></h1>
+<button onclick="mobno()">verify mobile number length</button>
+<h1 id="demo5"></h1>
+
+<script>
+    var array=[10,20,30,40,50,60,70,80,90,100];
+    function max()
+    {
+       var highest=0;
+    for(i=0;i<10;i++)
+    {
+        if(array[i]>highest)
+       {
+           highest=array[i];
+       }
+    }
+    document.write("The highest number is"+ highest);
+    }
+
+
+    function datefun()
+    {
+        document.getElementById('date').innerHTML=Date();
+    }
+
+
+    function copy()
+{
+    var a = document.getElementById("a");
+    var b = document.getElementById("b");
+    b.value = a.value;
+}
+
+
+function asc()
+{
+var arr1 = [50,90,30,10,35,95,20,66,69,34];
+arr1.sort();
+document.getElementById("demo1").innerHTML = arr1;
+}
+
+
+function descending()
+{
+var arr1 = [50,90,30,10,35,95,20,66,69,34];
+arr1.sort();
+arr1.reverse();
+document.getElementById("demo1").innerHTML = arr1;
+}
+
+
+
+function check()
+{
+var str1="devendrawaghulde2020@gmail.com";
+var c=str1.includes("@");
+document.getElementById("demo2").innerHTML=c;
+}
+
+function myfunction(min, max)
+{
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+
+var mob=7774880533;
+var str=mob.toString();
+document.getElementById("demo4").innerHTML=mob;
+function mobno()
+{
+	if(str.length==10)
+	document.getElementById("demo5").innerHTML="valid";
+	else
+	document.getElementById("demo5").innerHTML="invalid";
+}
+
+</script> 
+</body>
+</html>
