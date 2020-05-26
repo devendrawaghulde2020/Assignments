@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment</title>
+    </head>
+    <body>
+        <h3>Please Enter Following Details</h3>
+        <h5 style="color: red;">All text fields are mandatory</h5>
+        <form name="details" onsubmit=" return validateForm()">
+
+            <label>User ID:</label><br/>
+            <input id='uid' onchange="checkUserID()"><br/>
+            <label id='uidWarning' style="display: none; color: red;">User id must be minimum 3  and maximum 15 characters</label><br/>
+            <label>Password:</label><br/>
+            <input type="password" id='upass' onchange="checkPassword()">
+            <label id='passWarning' style="display: none; color: red;">Password must be minimum 8 characters</label><br/><br/>
+            <label>Mobile Number:</label><br/>
+            <input id='mobile' type="number" onchange="checkMobile()">
+            <label id='mobileWarning' style="display: none; color: red;">Mobile Number must be a 10 digit number</label><br/><br/>
+            <label>Address:</label><br/>
+            <textarea id='address' cols="20" rows="5"></textarea><br/>
+            <label id='addressWarning' style="display: none; color: red;">Please enter your address</label><br/>
+            <label>Age:</label><br/>
+            <input id='age' type="number" onchange="checkAge()"><br/>
+            <label id='ageWarning' style="display: none; color: red;">Age must be between 18 to 100</label><br/>
+            <input type="submit">
+        </form>
+
+
+        <script>
+
+            var isUserIdValid = false;
+            var isPasswordValid =false;
+            var isMobileValid = false;
+            var isAddressValid = false;
+            var isAgeValid = false;
+            //user id validation
+            function checkUserID(){
+                let userid = document.getElementById('uid').value;
+                
+                if(userid.length>=3 && userid.length<=15){
+                    document.getElementById('uidWarning').style.display = "none";
+                    isUserIdValid = true;
+                }
+                else{
+                    document.getElementById('uidWarning').style.display = "block";
+                    isUserIdValid = false;
+                }
+
+            }
+
+
+            //password validation
+            function checkPassword(){
+                let password = document.getElementById('upass').value.toString();
+                
+                if(password.length>=8){
+                    document.getElementById('passWarning').style.display = "none";
+                    isPasswordValid = true;
+                }else{
+                    document.getElementById('passWarning').style.display = "block";
+                    isPasswordValid = false;
+                }
+            }
+
+            //mobile validation
+
+            function checkMobile(){
+                let mobile = document.getElementById('mobile').value;
+
+                if(mobile.length==10){
+                    document.getElementById('mobileWarning').style.display = "none";
+                    isMobileValid = true;
+                }
+                else{
+                    document.getElementById('mobileWarning').style.display = "block";
+                    isMobileValid = false;
+                }
+            }
+
+            // age validation
+            function checkAge(){
+                let age = document.getElementById('age').value.toString();
+
+                if(age>=18 && age<=100){
+                    document.getElementById('ageWarning').style.display = "none";
+                    isAgeValid = true;
+                }
+                else{
+                    document.getElementById('ageWarning').style.display = "block";
+                    isAgeValid = false;
+                }
+            }
+
+
+            
+            //final validation
+            function validateForm(){
+
+                //address validation
+                let userAddress = document.forms["details"]["address"].value;
+                    if (userAddress == "" || userAddress == null) {
+                        document.getElementById('addressWarning').style.display = "block";
+                        isAddressValid = false;
+                }else{
+                    document.getElementById('addressWarning').style.display = "none";
+                    isAddressValid= true;
+                }
+
+
+
+                if(isUserIdValid && isPasswordValid  && isMobileValid && isAddressValid && isAgeValid){
+                    alert("Form Submitted Successfully");
+                    return true;
+                }else{
+                    alert("Please enter required details");
+                    return false;
+                }
+
+            }
+            
+
+        </script>
+    </body>
+</html>
