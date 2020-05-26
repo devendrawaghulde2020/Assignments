@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<body>
+    <h1 id="myname"></h1>
+    <h4>The result of square is: </h4>
+    <p id="square"></p>
+    <h4>The sum is:</h4>
+    <h5 id="summ"></h5>
+    <script>
+
+(function ()
+{
+    document.getElementById("myname").innerHTML="Devendra Tulshiram Waghulde!";
+})()
+
+var squareresult =(function (a)
+{
+     return a*a;
+})(2)
+
+document.getElementById("square").innerHTML=squareresult;
+
+
+var result=sum(2,4,6,8);
+
+function sum()
+{
+    var i;
+    var summ=0;
+    for(i=0;i<arguments.length;i++)
+    {
+        summ=summ+arguments[i];
+    }
+    return summ;
+}
+
+document.getElementById("summ").innerHTML=result;
+
+
+
+    </script>
+</body>
+</html>
