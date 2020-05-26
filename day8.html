@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<title>Day 8 JS Assignment</title>
+<body>
+    <h4 id="dev1"></h4>
+    <p id="demo"></p><br>
+    <h4 id="dev2"></h4>
+    <p id="demo1"></p>
+<script>
+class Employee
+{
+   constructor (id,name,salary)
+   {
+       this.id=id;
+       this.name=name;
+       this.salary=salary;
+       this.netSalary=null;
+   }
+
+   get getId()
+   {
+       return this.id;
+   }
+   
+   get getName()
+   {
+       return this.name;
+   }
+   
+   get getSalary()
+   {
+       return this.salary;
+   }
+   
+   get getnetSalary()
+   {
+       return this.netSalary;
+   }
+
+   set Id(id)
+   {
+       this.id=id;
+   }
+   
+   set Salary(salary)
+   {
+       this.salary=salary;
+   }
+   
+   set Name(name)
+   {
+       this.name=name;
+   }
+
+   calnetSalary()
+                {
+                    let TDS = 0.1;
+                    this.netSalary = this.salary - (TDS*this.salary);
+                }
+   
+}
+
+
+var obj=new Employee(1,"Devendra",15000);
+var dev=new Employee(2,"Prashant",45000);
+obj.calnetSalary();
+dev.calnetSalary();
+document.getElementById("dev1").innerHTML="The output for first Object is:";
+document.getElementById("demo").innerHTML=obj.id+" "+obj.name+" "+obj.salary+" "+obj.getnetSalary;
+document.getElementById("dev2").innerHTML="The output for second Object is:";
+document.getElementById("demo1").innerHTML=dev.id+" "+dev.name+" "+dev.salary+" "+dev.getnetSalary;
+</script>
+</body>
